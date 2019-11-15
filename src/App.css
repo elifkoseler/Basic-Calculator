@@ -1,0 +1,77 @@
+.App {
+  text-align: center;
+}
+#id1{
+  font-size: 10vh;
+  align-items: center;
+}
+#text {
+  color:blue;
+}
+#header{
+  text-align: center;
+  color: inherit;
+  font-family: 'Cookie', cursive;
+  font-family: 'M PLUS 1p', sans-serif;
+  font-family: 'Special Elite', cursive;
+  font-style: italic;
+  color: #73341D;
+
+}
+.main-calculator{
+  background-color: #FFE6B6;
+  background-position: left;
+  margin: auto;
+  text-align: center;
+  }
+.operands{
+  background-size: 200%;
+  color: #A65729;
+}
+#button{
+  font-size: 40px;
+  color: #73341D;
+  background-color: #FFB550;
+  border-radius: 50%;
+  padding: 10px;
+
+}
+#resetButton{
+  border-radius: 50px;
+  background-color: #FFF06F;
+  font-size: 40px;
+  border: 3px solid #B8251D;
+  padding: 10px;
+
+}
+
+#equalButton{
+  font-size: 50px;
+  text-align: center;
+  color: #401E12;
+  background-color: #BF7C63;
+  border-radius: 100vh;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.5), 0 6px 20px 0 rgba(0,0,0,0.19);
+  width: 120px;
+
+}
+#operatorButton{
+  font-size: 40px;
+  background-color: #FFF06F;
+  border-radius: 100vh;
+
+}
+.App-header {
+  background-color: #FFFABF;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #09d3ac;
+}
