@@ -46,4 +46,6 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 
 ---
 
-All codes of the project written by [me](https://github.com/elifkoseler/). In addition, readme file was used ready from the beginning of the project and some parts are added. The program is not running properly at the time, it is still in development process.
+> All codes of the project written by [me](https://github.com/elifkoseler/). In addition, readme file was used ready from the beginning of the project and some parts are added. The program is not running properly at the time, it is still in development process.
+
+---
