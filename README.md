@@ -1,7 +1,7 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 The sample screenshor of the program :
-![alt text](https://github.com/elifkoseler/Basic-Calculator/blob/master/ss.PNG")
+![](https://github.com/elifkoseler/Basic-Calculator/blob/master/ss.PNG")
 
 
 ## Available Scripts
