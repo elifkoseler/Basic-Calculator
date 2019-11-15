@@ -1,8 +1,10 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 The sample screenshor of the program :
+Reference-style:
 ![alt text][logo]
-[logo]: https://github.com/elifkoseler/Basic-Calculator/blob/master/ss.PNG
+
+[logo]: https://github.com/elifkoseler/Basic-Calculator/blob/master/ss.PNG "Logo Title Text 2"!
 
 
 ## Available Scripts
