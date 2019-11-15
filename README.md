@@ -1,7 +1,7 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 The sample screenshor of the program:
-![alt text](https://github.com/elifkoseler/Basic-Calculator/blob/master/ss.PNG "The sample screenshor of the program"){:height="36px" width="36px"}
+![pht](https://github.com/elifkoseler/Basic-Calculator/blob/master/ss.PNG =100x "The sample screenshor of the program")
 
 
 ## Available Scripts
