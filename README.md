@@ -1,4 +1,4 @@
-### The sample screenshor of the program:
+### The sample screenshot of the program:
 ![alt text](https://github.com/elifkoseler/Basic-Calculator/blob/master/ss.PNG "The sample screenshor of the program")
 
 ---
