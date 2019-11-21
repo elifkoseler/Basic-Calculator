@@ -1,8 +1,7 @@
 import React from 'react';
 //import logo from './logo.svg';
 import './App.css';
-//import sum from './functions.js';
-//import StackView from 'react-stack-view';
+//import func, {store} from './functions.js';
 
 class App extends React.Component {
   constructor(){
@@ -10,8 +9,8 @@ class App extends React.Component {
     this.state = {render: " "}
     this.stack = [];
     this.stackOp = [];
-    this.number1 = "";  //işlemleri ikili mantıkta yapmak için oluşturuldu. >>number1 op number2
-    this.number2 = "";
+  //  this.number1 = "";  //işlemleri ikili mantıkta yapmak için oluşturuldu. >>number1 op number2
+  //  this.number2 = "";
   }
   handleClick(number,i){
     this.setState({render: number});
@@ -27,119 +26,150 @@ class App extends React.Component {
   }
 
 
-/*  parse(number){
-    var array = [];
-    array = number.split("+" || "-" || "*" ||"/");
+ parse(number){
+  //  let x = 0;
+//    let y = 0;
+    let i = 0;
+    i = this.stack.indexOf("+");
+    console.log(i);
+
+    let split = number.replace("+"," ").replace("-"," ").replace("/"," ").replace("*"," ").split(" ");
+
+    console.log("splitted: " + split);
+    for(let x = 0; x < split.length; x++)
+      console.log("x" + x + ": " + split[x]);
     var intArray = [];
-    for(let x = 0; x < array.length;x++){
-        intArray[x] = parseInt(array[x]);
-    }
-   console.log("splittedINT: " + intArray);
-   console.log("splitted: " + array);
-    console.log("a0" +intArray[0]+intArray[1]);
 
-    return array;
-  }*/
+    for(let x = 0; x < split.length;x++){
+        intArray[x] = parseInt(split[x]);
+    }
+  // console.log("splittedINT: " + intArray);
+   //console.log("splitted: " + split);
+   //let t = intArray[0] + intArray[1];
+//   console.log("t=> " +t);
+
+    return intArray;
+  }
+
   conc(){
-
-
-  /*  if((x === "0") || (x==="1")
-          || (x==="2") || (x==="3")
-          || (x==="5") || (x==="4")){*/
-
+    let number ="";
         for(let x = 0; x < this.stack.length; x++){
-          this.number1 = this.number1 + this.stack[x];
+          number = number + this.stack[x];
         }
-
+      return number;
     }
 
-  operation(op,array){
-    switch (op) {
-      case "+":
-        let res = array[0] + array[1];
-        console.log("sonuc:" + res);
-        break;
-      case "-":
-        break;
-      case "*":
-        break;
-      case "/":
+      store(){
+        let number = this.conc();
+        console.log("the number " + number);
+      //  console.log("the number2 " + this.number2);
+        let array = this.parse(number);
+        let res = this.operation(array);
+
+          switch (this.state.render) {
+
+            case "1": this.stack.push(this.state.render);return <div id ="number"> 1 </div>
+            case "2": this.stack.push((this.state.render));return <div id ="number"> 2 </div>
+            case "3": this.stack.push(this.state.render);return <div id ="number"> 3 </div>
+            case "4": this.stack.push((this.state.render));return <div id ="number"> 4 </div>
+            case "5": this.stack.push((this.state.render));return <div id ="number"> 5 </div>
+            case "6": this.stack.push((this.state.render));return <div id ="number"> 6 </div>
+            case "7": this.stack.push(this.state.render);return <div id ="number"> 7 </div>
+            case "8": this.stack.push((this.state.render));return <div id ="number"> 8 </div>
+            case "9": this.stack.push((this.state.render)); return <div id ="number"> 9 </div>
+            case "0": this.stack.push((this.state.render));return <div id ="number"> 0 </div>
+            case "=": return <div id ="result"> {res} </div>
+
+            case "C": this.stack.pop(); return <div id ="result"> popped! </div>
+
+            case "AC":
+              while(this.stack.length > 0){
+                this.stack.pop();
+              }
+              while(this.stackOp.length > 0){
+                this.stackOp.pop();
+              }
+              this.number1 = "";
+              this.number2 = "";
+
+              return <div id ="result"> all clear! </div>
+
+            case "+":
+              this.stackOp.push((this.state.render));
+              this.stack.push((this.state.render));
+              return <div> + </div>
+            case "-":
+              this.stackOp.push((this.state.render));
+              this.stack.push((this.state.render));
+              return <div> - </div>
+            case "*":
+              this.stackOp.push((this.state.render));
+              this.stack.push((this.state.render));
+              return <div> * </div>
+            case "/":
+              this.stackOp.push((this.state.render));
+              this.stack.push((this.state.render));
+              return <div> / </div>
+            case "(":
+              this.stackOp.push((this.state.render));
+              this.stack.push((this.state.render));
+              return <div> ( </div>
+            case ")":
+              this.stackOp.push((this.state.render));
+              this.stack.push((this.state.render));
+              return <div> ) </div>
+
+            default:
+              console.log(this.stack);
+              console.log(this.stackOp);
+              //console.log("length: " + this.stack.length);
+
+              for(let x = 0; x < this.stack.length; x++){
+                console.log("digit" + x + ": " +  this.stack[x]);
+              }
+
+
+
+              //let n = parseInt(number);
+              //digit1 = parseInt(digit1);
+            // console.log(n);
+              //let res = n+2;
+            //  console.log(res);
+              //console.log(parseInt(number));
+
+
+          }
+
+        }
+  operation(array){
+    let res = 0;
+    for(let x = 0; x < this.stackOp.length; x++){
+      switch (this.stackOp[x]) {
+        case "+":
+          res = array[0] + array[1];
+          //return <div> res </div>
+          break;
+        case "-":
+          res = array[0] - array[1];
+          break;
+        case "*":
+          res = array[0] * array[1];
+          break;
+        case "/":
+          res = array[0] - array[1];
+          break;
+
+        default:
+        console.log("arrayOp bos");
         break;
 
-      default:
-      console.log("arrayOp bos");
-      break;
-
+      }
+      console.log("RESULT=> " + res);
     }
+    return <div id ="result"> Result: {res} </div>;
+
   }
 
-  store(){
-    //let number = this.conc();
-//    let array = this.parse(number);
-    //this.stack.pop();
-    this.conc();
-    switch (this.state.render) {
-
-      case "1": this.stack.push(this.state.render);return <div> 1 </div>
-      case "2": this.stack.push((this.state.render));return <div> 2 </div>
-      case "3": this.stack.push(this.state.render);return <div> 3 </div>
-      case "4": this.stack.push((this.state.render));return <div> 4 </div>
-      case "5": this.stack.push((this.state.render));return <div> 5 </div>
-      case "6": this.stack.push((this.state.render));return <div> 6 </div>
-      case "7": this.stack.push(this.state.render);return <div> 7 </div>
-      case "8": this.stack.push((this.state.render));return <div> 8 </div>
-      case "9": this.stack.push((this.state.render)); return <div> 9 </div>
-      case "0": this.stack.push((this.state.render));return <div> 0 </div>
-
-      case "C": this.stack.pop(); return <div> popped! </div>
-
-      case "AC":
-        while(this.stack.length > 0){
-          this.stack.pop();
-        }
-        while(this.stackOp.length > 0){
-          this.stackOp.pop();
-        }
-        this.number1 = "";
-        this.number2 = "";
-
-        return <div> all clear! </div>
-
-      case "+":
-        this.stackOp.push((this.state.render));
-        this.conc(false);
-        //this.stack.push((this.state.render));
-      //  this.operation("+",array);
-        return <div> + </div>
-
-      case "-": this.stackOp.push((this.state.render)); return <div> - </div>
-      case "*": this.stackOp.push((this.state.render)); return <div> * </div>
-      case "/": this.stackOp.push((this.state.render)); return <div> / </div>
-      case "(": this.stackOp.push((this.state.render));return <div> ( </div>
-      case ")": this.stackOp.push((this.state.render)); return <div> ) </div>
-
-      default:
-        console.log(this.stack);
-        console.log(this.stackOp);
-        console.log("length: " + this.stack.length);
-
-        for(let x = 0; x < this.stack.length; x++){
-          console.log("digit" + x + ": " +  this.stack[x]);
-        }
-
-        console.log("the number1 " + this.number1);
-        console.log("the number2 " + this.number2);
-
-        let n = parseInt(this.number1);
-        //digit1 = parseInt(digit1);
-        console.log(this.number1);
-        let res = n+2;
-        console.log(res);
-        //console.log(parseInt(number));
-
-    }
-
-  }
 
   render(){
     return (

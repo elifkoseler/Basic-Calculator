@@ -1,14 +1,9 @@
-//import React from 'react';
-import stack from "./App.js";
+import React from 'react';
+//import stack from "./App.js";
 
-  function sum(){
-    let number = "";
-    for(let x = 0; x < stack.length; x++){
-        number = number + stack[x];
-    }
-    return number;
-  }
+class func extends React.Component{
 
+}
 
-
-export default sum;
+export default {func};
+{this.operation(this.parse(this.conc()))}
