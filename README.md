@@ -1,3 +1,6 @@
+[![Run on Repl.it](https://repl.it/badge/github/elifkoseler/Basic-Calculator)](https://repl.it/github/elifkoseler/Basic-Calculator)
+
+
 ### The sample screenshot of the program:
 ![alt text](https://github.com/elifkoseler/Basic-Calculator/blob/master/ss.PNG "The sample screenshor of the program")
 
